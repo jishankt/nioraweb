@@ -1,0 +1,132 @@
+.login {
+  min-height: 100vh;
+  background: var(--niora-emerald);
+  color: var(--niora-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.login__atmosphere {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 25% 25%, rgba(243, 223, 180, 0.15), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 75%, rgba(243, 223, 180, 0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.login__back {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(243, 223, 180, 0.65);
+  transition: color 220ms ease;
+  z-index: 2;
+}
+.login__back:hover { color: var(--niora-cream); }
+
+.login__card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: rgba(243, 223, 180, 0.05);
+  border: 1px solid rgba(243, 223, 180, 0.15);
+  border-radius: 14px;
+  padding: 3rem 2.5rem;
+  backdrop-filter: blur(20px);
+  z-index: 2;
+  text-align: center;
+}
+
+.login__wordmark-img {
+  height: 32px;
+  width: auto;
+  margin-bottom: 1.4rem;
+  filter: drop-shadow(0 0 16px rgba(201, 165, 90, 0.45));
+}
+
+.login__title {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  color: var(--niora-cream);
+  margin: 0.6rem 0 0.7rem;
+  line-height: 1;
+}
+.login__title .serif-italic { color: var(--niora-cream-soft); }
+
+.login__sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(243, 223, 180, 0.7);
+  margin: 0 0 2rem;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  text-align: left;
+}
+
+.login__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.login__field-icon {
+  position: absolute;
+  left: 14px;
+  color: rgba(243, 223, 180, 0.5);
+}
+.login__field input {
+  width: 100%;
+  background: rgba(243, 223, 180, 0.06);
+  border: 1px solid rgba(243, 223, 180, 0.18);
+  border-radius: 8px;
+  padding: 0.85rem 0.85rem 0.85rem 40px;
+  color: var(--niora-cream);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 220ms ease, background 220ms ease;
+}
+.login__field input::placeholder { color: rgba(243, 223, 180, 0.4); }
+.login__field input:focus {
+  border-color: var(--niora-cream);
+  background: rgba(243, 223, 180, 0.1);
+}
+
+.login__error {
+  background: rgba(176, 58, 29, 0.18);
+  border: 1px solid rgba(176, 58, 29, 0.4);
+  color: #ffb9a8;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.login__hint {
+  margin-top: 1.6rem;
+  font-size: 0.75rem;
+  color: rgba(243, 223, 180, 0.45);
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+.login__hint code {
+  font-family: 'SF Mono', Menlo, monospace;
+  font-style: normal;
+  background: rgba(243, 223, 180, 0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}

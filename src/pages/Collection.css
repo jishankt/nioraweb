@@ -1,0 +1,122 @@
+.collection-page { padding-top: 7rem; }
+
+.collection-hero {
+  text-align: center;
+  padding: 2rem 0 4rem;
+}
+
+.collection-hero__title {
+  font-size: clamp(3rem, 7vw, 5.4rem);
+  color: var(--niora-emerald);
+  margin: 0.8rem 0 0.6rem;
+  line-height: 1;
+}
+
+.collection-hero__sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(15, 58, 50, 0.6);
+  margin: 0;
+}
+
+.collection-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--niora-line);
+  border-bottom: 1px solid var(--niora-line);
+  padding: 1.1rem 0;
+}
+
+.collection-cats {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.collection-cat {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--niora-emerald);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: all 240ms ease;
+}
+.collection-cat:hover { background: var(--niora-cream-pale); }
+.collection-cat.is-active {
+  background: var(--niora-emerald);
+  color: var(--niora-cream);
+}
+
+.collection-tools {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.collection-search {
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--niora-line-strong);
+  border-radius: 999px;
+  background: transparent;
+  outline: none;
+  font-size: 0.85rem;
+  width: 200px;
+  transition: border-color 220ms ease;
+}
+.collection-search:focus { border-color: var(--niora-emerald); }
+
+.collection-sort {
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--niora-line-strong);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--niora-emerald);
+  cursor: pointer;
+  outline: none;
+}
+
+.collection-filter-btn {
+  width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--niora-line-strong);
+  border-radius: 999px;
+  color: var(--niora-emerald);
+}
+
+.collection-mobile-filters {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 32, 29, 0.5);
+  z-index: 1500;
+  display: flex;
+  justify-content: flex-end;
+}
+.collection-mobile-filters__inner {
+  background: var(--niora-paper);
+  width: min(360px, 90vw);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  overflow-y: auto;
+}
+
+.collection-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .collection-bar { gap: 0.6rem; }
+  .collection-search { width: 100%; flex: 1; }
+}

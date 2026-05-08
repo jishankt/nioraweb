@@ -1,0 +1,104 @@
+/* ============================================================
+   NIORA Logo component
+   ------------------------------------------------------------
+   Source PNGs are cream artwork on transparent backgrounds.
+   - tone="cream" → render as-is (cream artwork, perfect on dark/emerald)
+   - tone="dark"  → invert cream → deep emerald (use on light surfaces)
+   - tone="gold"  → re-tint cream → rich gold
+   When you swap in your own logos, just drop the same filenames in
+   src/assets/ and nothing else needs to change.
+   ============================================================ */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  line-height: 0;
+}
+
+.logo--stack {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logo__mark,
+.logo__wordmark {
+  display: block;
+  width: auto;
+  /* Smooth scaling for high-resolution PNGs */
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* ---------------- Sizing ---------------- */
+
+/* Mark sizing */
+.logo--sm .logo__mark { height: 26px; }
+.logo--md .logo__mark { height: 40px; }
+.logo--lg .logo__mark { height: 80px; }
+.logo--xl .logo__mark { height: 140px; }
+
+/* Wordmark sizing — wordmark image is ~3.4× wider than tall */
+.logo--sm .logo__wordmark { height: 14px; }
+.logo--md .logo__wordmark { height: 22px; }
+.logo--lg .logo__wordmark { height: 38px; }
+.logo--xl .logo__wordmark { height: 60px; }
+
+/* In stack variant, give the mark more presence */
+.logo--stack.logo--md .logo__mark { height: 56px; }
+.logo--stack.logo--md .logo__wordmark { height: 18px; }
+.logo--stack.logo--lg .logo__mark { height: 100px; }
+.logo--stack.logo--lg .logo__wordmark { height: 32px; }
+.logo--stack.logo--xl .logo__mark { height: 180px; }
+.logo--stack.logo--xl .logo__wordmark { height: 56px; }
+
+/* ---------------- Tone (background-aware) ---------------- */
+
+/* Default (tone-auto, tone-cream) — render as-is.
+   Cream artwork on transparent background works on dark surfaces. */
+
+/* On light surfaces, invert cream → deep emerald */
+.logo--tone-dark .logo__mark,
+.logo--tone-dark .logo__wordmark {
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(15%)
+    sepia(56%)
+    saturate(640%)
+    hue-rotate(118deg)
+    brightness(95%)
+    contrast(97%);
+}
+
+/* Gold tone — for accent positions on light backgrounds */
+.logo--tone-gold .logo__mark,
+.logo--tone-gold .logo__wordmark {
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(64%)
+    sepia(46%)
+    saturate(450%)
+    hue-rotate(2deg)
+    brightness(94%)
+    contrast(91%);
+}
+
+/* Cream tone — small brightness boost for use on dark green */
+.logo--tone-cream .logo__mark,
+.logo--tone-cream .logo__wordmark {
+  filter: brightness(1.02);
+}
+
+/* ---------------- Effects ---------------- */
+
+.logo--shadow .logo__mark,
+.logo--shadow .logo__wordmark {
+  filter: drop-shadow(0 6px 20px rgba(15, 58, 50, 0.35));
+}
+
+.logo--glow .logo__mark,
+.logo--glow .logo__wordmark {
+  filter: drop-shadow(0 0 20px rgba(201, 165, 90, 0.45))
+          drop-shadow(0 4px 14px rgba(243, 223, 180, 0.25));
+}

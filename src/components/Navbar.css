@@ -1,0 +1,247 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.4rem 0;
+  transition: background 380ms ease, padding 380ms ease, box-shadow 380ms ease, backdrop-filter 380ms ease;
+}
+
+/* When at the top of the homepage (over the dark splash), make link/cart text gold/cream */
+body.home-top .nav:not(.nav--scrolled) .nav__brand-text {
+  background: var(--niora-gold-gradient-bright);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body.home-top .nav:not(.nav--scrolled) .nav__link {
+  color: var(--niora-gold-pale);
+  opacity: 0.85;
+}
+body.home-top .nav:not(.nav--scrolled) .nav__link:hover {
+  opacity: 1;
+}
+body.home-top .nav:not(.nav--scrolled) .nav__link::after {
+  background: var(--niora-gold);
+}
+body.home-top .nav:not(.nav--scrolled) .nav__cart {
+  border-color: rgba(243, 223, 180, 0.3);
+  color: var(--niora-gold-pale);
+}
+body.home-top .nav:not(.nav--scrolled) .nav__cart:hover {
+  background: var(--niora-gold-gradient);
+  color: var(--niora-emerald-deep);
+}
+
+.nav--scrolled {
+  background: rgba(250, 247, 240, 0.85);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  padding: 0.85rem 0;
+  box-shadow: 0 1px 0 rgba(15, 58, 50, 0.08), 0 8px 32px -16px rgba(15, 58, 50, 0.1);
+}
+
+.nav__row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ---------- Typographic wordmark (text only) ---------- */
+.nav__brand {
+  justify-self: start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  text-decoration: none;
+  position: relative;
+  padding: 0.2rem 0;
+}
+
+.nav__brand-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--niora-emerald) 0%, var(--niora-emerald-soft) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: letter-spacing 380ms cubic-bezier(0.22, 1, 0.36, 1), background 380ms ease;
+}
+
+.nav__brand-tag {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.78rem;
+  background: var(--niora-gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.85;
+  letter-spacing: 0.02em;
+  transition: opacity 280ms ease;
+}
+
+.nav__brand:hover .nav__brand-text {
+  letter-spacing: 0.28em;
+  background: var(--niora-gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav__brand:hover .nav__brand-tag {
+  opacity: 1;
+}
+
+/* ---------- Links ---------- */
+.nav__links {
+  display: flex;
+  gap: 2.4rem;
+  justify-self: center;
+}
+
+.nav__link {
+  position: relative;
+  font-size: 0.74rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--niora-ink);
+  padding: 0.4rem 0;
+  overflow: hidden;
+}
+
+.nav__link-text {
+  display: inline-block;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--niora-emerald);
+  transition: width 320ms ease, left 320ms ease;
+}
+
+.nav__link:hover::after,
+.nav__link--active::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav__link--active {
+  color: var(--niora-emerald);
+  font-weight: 500;
+}
+
+/* ---------- Actions ---------- */
+.nav__actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nav__cart {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--niora-line);
+  border-radius: 999px;
+  color: var(--niora-emerald);
+  background: transparent;
+  transition: background 320ms ease, color 320ms ease, transform 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
+}
+
+.nav__cart:hover {
+  background: var(--niora-emerald);
+  color: var(--niora-gold-pale);
+  transform: translateY(-2px);
+  border-color: var(--niora-gold);
+  box-shadow: 0 0 0 2px rgba(201, 165, 90, 0.2);
+}
+
+.nav__cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  background: var(--niora-gold-gradient);
+  color: var(--niora-emerald-deep);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--niora-paper);
+  font-family: var(--font-sans);
+}
+
+.nav__menu-btn {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--niora-emerald);
+}
+
+/* ---------- Mobile menu ---------- */
+.nav__mobile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--niora-paper);
+  border-top: 1px solid var(--niora-line);
+  padding: 1.5rem var(--gutter) 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: 0 30px 50px -30px rgba(15, 58, 50, 0.25);
+}
+
+.nav__mobile-link {
+  display: block;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--niora-line);
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--niora-ink);
+  transition: padding-left 280ms ease;
+}
+
+.nav__mobile-link:hover {
+  padding-left: 0.8rem;
+  color: var(--niora-emerald);
+}
+
+.nav__mobile-link--active {
+  color: var(--niora-emerald);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .nav__row { grid-template-columns: auto 1fr auto; }
+  .nav__brand { justify-self: start; }
+  .nav__actions { justify-self: end; }
+  .nav__brand-text { font-size: 1.25rem; letter-spacing: 0.2em; }
+  .nav__brand-tag { display: none; }
+}

@@ -1,0 +1,332 @@
+/* ---------- NIORA design system ---------- */
+:root {
+  /* ===== NIORA palette: deep emerald + rich gold ===== */
+  --niora-emerald: #0f3a32;
+  --niora-emerald-deep: #0a2a24;
+  --niora-emerald-darker: #061a16;
+  --niora-emerald-soft: #16493f;
+  --niora-emerald-mist: #2d5e54;
+
+  /* Gold accents — the second brand colour */
+  --niora-gold: #c9a55a;
+  --niora-gold-deep: #a8862f;
+  --niora-gold-light: #e3c585;
+  --niora-gold-pale: #f3dfb4;
+  --niora-gold-cream: #f7e9c8;
+  --niora-gold-gradient: linear-gradient(135deg, #d4af6a 0%, #f3dfb4 50%, #c9a55a 100%);
+  --niora-gold-gradient-bright: linear-gradient(135deg, #e3c585 0%, #fff4d9 50%, #d4af6a 100%);
+
+  /* Legacy cream aliases (kept for any older selectors) */
+  --niora-cream: #f3dfb4;
+  --niora-cream-soft: #f7e9c8;
+  --niora-cream-pale: #fbf5e6;
+
+  /* Paper now leans warm-green-cream, not neutral */
+  --niora-ink: #0a1f1b;
+  --niora-paper: #f5f1e6;
+  --niora-paper-2: #ede5d2;
+  --niora-paper-warm: #faf5e8;
+  --niora-line: rgba(15, 58, 50, 0.14);
+  --niora-line-strong: rgba(15, 58, 50, 0.3);
+  --niora-shadow: 0 30px 60px -30px rgba(15, 58, 50, 0.4);
+  --niora-shadow-gold: 0 20px 50px -20px rgba(168, 134, 47, 0.45);
+
+  /* Type */
+  --font-display: 'Italiana', 'Cormorant Garamond', serif;
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing rhythm */
+  --gutter: clamp(1.25rem, 3vw, 3rem);
+  --section-y: clamp(4rem, 9vw, 8rem);
+}
+
+* { box-sizing: border-box; }
+*::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--niora-paper);
+  color: var(--niora-ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 220ms ease, opacity 220ms ease;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+.serif-italic { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: var(--section-y) 0;
+}
+
+/* ---------- Eyebrow / labels ---------- */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--niora-emerald);
+  position: relative;
+  display: inline-block;
+}
+
+.eyebrow--cream { color: var(--niora-gold-pale); }
+.eyebrow--gold {
+  color: var(--niora-gold-deep);
+  letter-spacing: 0.32em;
+}
+
+/* selection now in gold */
+::selection { background: var(--niora-gold); color: var(--niora-emerald-deep); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: transform 280ms ease, background 280ms ease, color 280ms ease, box-shadow 280ms ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--niora-emerald);
+  color: var(--niora-gold-pale);
+  position: relative;
+  overflow: hidden;
+}
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(243, 223, 180, 0.28) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 700ms ease;
+}
+.btn--primary:hover {
+  background: var(--niora-emerald-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -18px rgba(15, 58, 50, 0.65), 0 0 0 1px var(--niora-gold);
+  color: var(--niora-gold-light);
+}
+.btn--primary:hover::before {
+  transform: translateX(100%);
+}
+
+.btn--cream {
+  background: var(--niora-gold-pale);
+  color: var(--niora-emerald);
+}
+.btn--cream:hover {
+  background: var(--niora-gold-cream);
+  transform: translateY(-2px);
+}
+
+.btn--gold {
+  background: var(--niora-gold-gradient);
+  color: var(--niora-emerald-deep);
+  font-weight: 600;
+  box-shadow: 0 14px 30px -16px rgba(168, 134, 47, 0.55);
+  position: relative;
+  overflow: hidden;
+}
+.btn--gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 800ms ease;
+}
+.btn--gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 40px -16px rgba(168, 134, 47, 0.7);
+}
+.btn--gold:hover::before {
+  transform: translateX(100%);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--niora-emerald);
+  border-color: var(--niora-line-strong);
+}
+.btn--ghost:hover {
+  background: var(--niora-emerald);
+  color: var(--niora-gold-pale);
+  border-color: var(--niora-emerald);
+}
+
+.btn--block { width: 100%; justify-content: center; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+/* ---------- Hairline divider ---------- */
+.hairline {
+  height: 1px;
+  background: var(--niora-line);
+  border: 0;
+  margin: 0;
+}
+
+/* ---------- Form fields ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.field label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--niora-emerald);
+  font-weight: 500;
+}
+.field input, .field textarea, .field select {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--niora-line-strong);
+  padding: 0.7rem 0.1rem;
+  outline: none;
+  transition: border-color 220ms ease;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  border-color: var(--niora-emerald);
+}
+.field textarea { min-height: 110px; resize: vertical; }
+
+/* ---------- Scroll ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--niora-paper); }
+::-webkit-scrollbar-thumb {
+  background: var(--niora-emerald);
+  border-radius: 999px;
+  border: 2px solid var(--niora-paper);
+}
+
+/* ---------- Selection handled at top of file ---------- */
+
+/* ---------- Utility ---------- */
+.text-center { text-align: center; }
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+
+/* ---------- Loading shimmer ---------- */
+.shimmer {
+  background: linear-gradient(90deg, var(--niora-paper-2) 0%, var(--niora-gold-cream) 50%, var(--niora-paper-2) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 8px;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ---------- Reveal animations (used by Framer Motion fallback) ---------- */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: revealUp 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes revealUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Page transitions wrapper ---------- */
+.page-wrap { min-height: 60vh; }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--niora-emerald);
+  color: var(--niora-gold-pale);
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: var(--niora-shadow), 0 0 0 1px var(--niora-gold);
+  z-index: 10000;
+  animation: toastIn 220ms ease, toastOut 220ms ease 2.6s forwards;
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+@keyframes toastOut {
+  to { opacity: 0; transform: translate(-50%, 10px); }
+}
+
+/* ---------- Responsive helpers ---------- */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
+}
