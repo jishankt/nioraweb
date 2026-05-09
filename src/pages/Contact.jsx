@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Check } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Check, Instagram } from 'lucide-react';
 import { submitEnquiry, OWNER_WHATSAPP_NUMBER } from '../services/api.js';
 import './Contact.css';
 
@@ -84,7 +84,7 @@ const Contact = () => {
                 <div>
                   <span className="eyebrow">WhatsApp</span>
                   <a href={`https://wa.me/91${OWNER_WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer">
-                    +91 {OWNER_WHATSAPP_NUMBER}
+                    +91 62357 45515
                   </a>
                 </div>
               </li>
@@ -92,14 +92,27 @@ const Contact = () => {
                 <span className="contact-list__icon"><Mail size={18} strokeWidth={1.4} /></span>
                 <div>
                   <span className="eyebrow">Email</span>
-                  <a href="mailto: hellonioraofficial@gmail.com"> hellonioraofficial@gmail.com</a>
+                  <a href="mailto:hellonioraofficial@gmail.com">hellonioraofficial@gmail.com</a>
+                </div>
+              </li>
+              <li>
+                <span className="contact-list__icon"><Instagram size={18} strokeWidth={1.4} /></span>
+                <div>
+                  <span className="eyebrow">Instagram</span>
+                  <a
+                    href="https://www.instagram.com/niora_oficial?igsh=bzcxbjd3ZTRqdTd6"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    @niora_oficial
+                  </a>
                 </div>
               </li>
               <li>
                 <span className="contact-list__icon"><MapPin size={18} strokeWidth={1.4} /></span>
                 <div>
                   <span className="eyebrow">Location</span>
-                  <span>Kozhikode, Kerala — India</span>
+                  <span>Calicut, Kerala — India</span>
                 </div>
               </li>
             </ul>

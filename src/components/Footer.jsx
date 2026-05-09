@@ -32,10 +32,22 @@ const Footer = () => {
           </p>
 
           <div className="footer__social">
-            <a href="https://instagram.com/niora_oficial" aria-label="Instagram" className="footer__social-link">
+            <a
+              href="https://www.instagram.com/niora_oficial?igsh=bzcxbjd3ZTRqdTd6"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="NIORA on Instagram"
+              className="footer__social-link"
+            >
               <Instagram size={15} strokeWidth={1.5} />
             </a>
-            <a href="#" aria-label="Facebook" className="footer__social-link">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="footer__social-link"
+            >
               <Facebook size={15} strokeWidth={1.5} />
             </a>
           </div>
@@ -69,11 +81,11 @@ const Footer = () => {
             className="footer__contact"
           >
             <Phone size={14} strokeWidth={1.6} />
-            <span>+91 {OWNER_WHATSAPP_NUMBER}</span>
+            <span>+91 62357 45515</span>
           </a>
-          <a href="mailto:hello@niora.shop" className="footer__contact">
+          <a href="mailto:hellonioraofficial@gmail.com" className="footer__contact">
             <Mail size={14} strokeWidth={1.6} />
-            <span> hellonioraofficial@gmail.com</span>
+            <span>hellonioraofficial@gmail.com</span>
           </a>
           <div className="footer__newsletter">
             <span className="footer__newsletter-label">— Now serving —</span>

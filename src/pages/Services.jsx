@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  Scissors, Sparkles, Truck, Ruler, ShieldCheck,
+  Scissors, Sparkles, Wand2, Footprints, Truck, ShieldCheck,
   ArrowRight, Phone, Clock, CheckCircle2,
 } from 'lucide-react';
 import { OWNER_WHATSAPP_NUMBER } from '../services/api.js';
@@ -16,33 +16,27 @@ const fadeUp = {
 const services = [
   {
     Icon: Scissors,
-    title: 'Expert Alterations',
-    desc: 'Hems, takes-in, takes-out, sleeve adjustments, and complete reshaping. Tailored by hand, returned with care.',
-    points: ['Length & hem adjustments', 'Fit & shape refinement', 'Wedding & occasion wear'],
+    title: 'Alteration & Stitching',
+    desc: 'Hand-finished alterations and custom stitching — hems, takes-in, takes-out, sleeve adjustments, and complete reshaping. Tailored by hand, returned with care.',
+    points: ['Length & hem adjustments', 'Fit & shape refinement', 'Custom stitching on request'],
   },
   {
     Icon: Sparkles,
-    title: 'Premium Laundry',
-    desc: 'Gentle wash, fabric-safe finishing, and pressing that brings every garment back to life — looking and feeling new.',
-    points: ['Delicate hand wash', 'Steam press & finish', 'Stain treatment included'],
+    title: 'Laundry & Dry Cleaning',
+    desc: 'Premium laundry and fabric-safe dry cleaning. Gentle wash, careful handling, and pressing that brings every garment back to life — looking and feeling new.',
+    points: ['Delicate hand wash', 'Professional dry cleaning', 'Steam press & finish'],
   },
   {
-    Icon: Ruler,
-    title: 'Custom Fittings',
-    desc: 'Made-to-measure adjustments for your most loved pieces. We refine every line so your clothes fit only you.',
-    points: ['In-person measurements', 'Multiple fittings if needed', 'Doorstep pickup available'],
+    Icon: Wand2,
+    title: 'Patching & Customisation',
+    desc: 'Tear repair, patchwork, embroidery, and creative customisation. Make a tired piece your own again — or turn a plain one into something only you would wear.',
+    points: ['Tear & hole repair', 'Decorative patches', 'Personalised customisation'],
   },
   {
-    Icon: ShieldCheck,
-    title: 'Garment Restoration',
-    desc: 'Bring tired threads back to life. Repairs, re-stitching, and quiet restorative care for the pieces you love.',
-    points: ['Seam & button repair', 'Lining replacement', 'Vintage care'],
-  },
-  {
-    Icon: Truck,
-    title: 'Doorstep Service',
-    desc: 'Pickup and delivery across Calicut and beyond. Always on standby — we come to you, your clothes come back better.',
-    points: ['7 days a week', 'WhatsApp booking', 'Tracking on every order'],
+    Icon: Footprints,
+    title: 'Shoe & Chappal Detailing',
+    desc: 'Cleaning, polishing, sole repair, and detailing for shoes and chappals. From everyday pairs to occasion footwear, we bring back the shine and the comfort.',
+    points: ['Deep cleaning & polish', 'Sole & strap repair', 'Leather conditioning'],
     feature: true,
   },
 ];
@@ -180,7 +174,7 @@ const Services = () => (
               </ul>
               {s.feature && (
                 <div className="service-card__ribbon">
-                  <span>Always on standby</span>
+                  <span>New · Now offering</span>
                 </div>
               )}
             </motion.article>
